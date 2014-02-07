@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Set</title>
+</head>
+<body>
+
+<script data-main="scripts/main" src="scripts/lib/require-2.1.10.js"></script>
+
+<style type="text/css">
+html {
+	font-family: sans-serif;
+}
+button {
+	color: #fff;
+	background-color: #428bca;
+	border-color: #357ebd;
+	padding: 6px 12px;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+button:hover {
+	background-color: #3276b1;
+	border-color: #285e8e;
+}
+button[disabled] {
+	cursor: not-allowed;
+	pointer-events: none;
+	opacity: .65;
+}
+button#submitSet {
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+button#submitSet:hover {
+	background-color: #47a447;
+	border-color: #398439;
+}
+.alert {
+	padding: 6px;
+	border-radius: 4px;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+}
+#controls {
+	width: 150px;
+	position: fixed;
+}
+#controls button {
+	width: 100%;
+}
+#cardList {
+	margin-left: 160px;
+}
+#cardList ul {
+	width: 1000px;
+}
+#cardList li {
+	display: inline-block;
+	width: 300px;
+	height: 150px;
+	background-color: #eee;
+	margin: 10px;
+	cursor: pointer;
+}
+#cardList li:hover {
+	background-color: #ddd;
+}
+#cardList li.selected {
+	background-color: #ccc;
+}
+.image svg {
+	display: block;
+	margin: 21px auto;
+}
+</style>
+
+<section id="setApp">
+	<div id="controls">
+		<h1>Set</h1>
+		<div id="summary"></div>
+	</div>
+
+	<div id="cardList">
+		<ul></ul>
+	</div>
+</section>
+
+<!-- Get some underscore templating going -->
+<script type="text/template" id="summary-template">
+	<button id="newGame" type="button">New Game</button>
+	<p>{{setsFound}} {{setsFoundUnit}} found<br>
+	{{cardsLeft}} cards left<br>
+    {{numberOfSets}} possible {{numberOfSetsUnit}}</p>
+	<button id="moreCards" type="button">More Cards</button>
+	<button id="submitSet" type="button">Set</button>
+	<div class="alert">That is not a set.</div>
+</script>
+
+<script type="text/template" id="card-template">
+	<div class="image"></div>
+</script>
+
+</body>
+</html>
